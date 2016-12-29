@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CatalogData>
+    <book id="123456789">
+        <author>Lam Nguyen</author>
+        <title>Spring boot framework</title>
+        <genre>Programming</genre>
+        <price>9.9</price>
+        <publish_date>2016-01-20</publish_date>
+        <description>Getting start with Spring framework tutorial</description>
+    </book>
+    <book id="1234567890">
+        <author>Greenlucky</author>
+        <title>Spring boot with JPA/</title>
+        <genre>Programming</genre>
+        <price>9.9</price>
+        <publish_date>2016-10-10</publish_date>
+        <description>Working spring boot with JPA in small project</description>
+    </book>
+</CatalogData>
