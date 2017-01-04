@@ -1,0 +1,3 @@
+net/persistence/GenericDao.class
+net/domain/User.class
+net/service/UserDaoImpl.class
