@@ -9,6 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "USER")
+@SecondaryTable(name = "ADDRESS")
 public class User implements Serializable{
 
     @Id
@@ -23,6 +24,15 @@ public class User implements Serializable{
 
     @Temporal(value = TemporalType.DATE)
     private Date added;
+
+    @Column(table = "ADDRESS", name = "address")
+    private String address;
+
+    @Column(table = "ADDRESS", name = "zipCode")
+    private String zipCode;
+
+    @Column(table = "ADDRESS", name = "city")
+    private String city;
 
     public User() {
     }
@@ -65,6 +75,30 @@ public class User implements Serializable{
         this.added = added;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -72,6 +106,9 @@ public class User implements Serializable{
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", added=" + added +
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 

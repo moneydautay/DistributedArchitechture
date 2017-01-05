@@ -87,13 +87,10 @@ public class UserTest{
         User user5 = userDaoImpl.createUser(testName.getMethodName(), testName.getMethodName(), now);
         User user6 = userDaoImpl.createUser(testName.getMethodName(), testName.getMethodName(), now);
 
-
-        userDaoImpl.delete(1);
-
         //find user's id 1
         User user = userDaoImpl.findById(1);
 
-        Assert.assertNull(user);
+        System.out.println(user.toString());
 
 
         List<User> users = userDaoImpl.findAll();
@@ -104,13 +101,11 @@ public class UserTest{
     public void testCreateUsers() throws Exception{
         userDaoImpl = new UserDaoImpl();
         List<User> users = new ArrayList<User>();
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-        users.add(new User(testName.getMethodName(),testName.getMethodName(), new Date()));
-
+        User user = new User(testName.getMethodName(),testName.getMethodName(), new Date());
+        user.setAddress("ABC");
+        user.setZipCode("ABC");
+        user.setCity("HCM");
+        users.add(user);
         userDaoImpl.createUser(users);
 
         List<User> expectUsers = userDaoImpl.findAll();
