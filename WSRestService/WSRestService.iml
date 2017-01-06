@@ -15,6 +15,16 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="Albums" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -52,7 +62,28 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
-    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.antlr:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa.jpql:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.core:2.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.h2database:h2:1.4.193" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.dbunit:dbunit:2.5.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.poi:poi-ooxml:3.14" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.poi:poi:3.14" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.poi:poi-ooxml-schemas:3.14" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: stax:stax-api:1.0.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.virtuald:curvesapi:1.03" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.jetty:jetty-server:9.4.0.v20161208" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.jetty:jetty-http:9.4.0.v20161208" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.jetty:jetty-util:9.4.0.v20161208" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.jetty:jetty-io:9.4.0.v20161208" level="project" />
+    <orderEntry type="library" name="Maven: c3p0:c3p0:0.9.1.2" level="project" />
   </component>
 </module>

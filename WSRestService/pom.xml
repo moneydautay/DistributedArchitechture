@@ -49,6 +49,34 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.193</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.5.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.0.v20161208</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
         </dependency>
     </dependencies>
     <repositories>
@@ -77,11 +105,11 @@
             <artifactId>jetty-maven-plugin</artifactId>
             <version>9.4.0.v20161208</version>
             <configuration>
-               <!-- <webApp>
+             <!--  <webApp>
                     <contextPath>/${project.artifactId}</contextPath>
                 </webApp>-->
-                <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
-                <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
+               <!-- <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
+                <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>-->
             </configuration>
         </plugin>
     </plugins>

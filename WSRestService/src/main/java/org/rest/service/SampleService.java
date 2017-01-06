@@ -2,6 +2,7 @@ package org.rest.service;
 
 import org.rest.service.entities.Album;
 
+import javax.persistence.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -14,6 +15,10 @@ import java.util.*;
  */
 @Path("/sampleservice")
 public class SampleService{
+
+
+    private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("Albums");
+    private static EntityManager em = null;
 
     private static Map<String, Album> albums = new HashMap<String, Album>();
     
@@ -41,34 +46,81 @@ public class SampleService{
         albums.put(album3.getAlbumId(), album3);
     }
 
+    public SampleService(){
+        em = factory.createEntityManager();
+    }
+
     @GET
     @Path("/albums")
     @Produces(MediaType.APPLICATION_XML)
     public List<Album> albumList(){
-        LOGGER.info("Get albums {}", albums);
-        return new ArrayList<>(albums.values());
+        List<Album> localAlbums = getLocalAlbums();
+        LOGGER.info("Get albums by json {}", localAlbums);
+        return new ArrayList<>(localAlbums);
     }
 
     @GET
     @Path("/album/{albumId}")
     @Produces(MediaType.APPLICATION_XML)
     public Album getAlbum(@PathParam("albumId") String albumId){
-        return albums.get(albumId);
+        Album localAlbum = getLocalAlbum(albumId);
+        LOGGER.info("Get album by xml given by {}", localAlbum);
+        return localAlbum;
     }
 
     @GET
     @Path("/json/albums")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Album> listAlbumJSON(){
-        LOGGER.info("Get albums by json {}", albums);
-        return new ArrayList<>(albums.values());
+        List<Album> localAlbums = getLocalAlbums();
+        LOGGER.info("Get albums by json {}", localAlbums);
+       return localAlbums;
     }
 
     @GET
     @Path("/json/album/{albumId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Album getAlbumJSON(@PathParam("albumId") String albumId){
-        LOGGER.info("Get album by json given by {}", albumId);
-        return getAlbum(albumId);
+        Album localAlbum = getLocalAlbum(albumId);
+        LOGGER.info("Get album by json given by {}", localAlbum);
+        return localAlbum;
+    }
+
+    private List<Album> getLocalAlbums(){
+        List<Album> localAlbums = new ArrayList<>();
+        EntityTransaction tx = em.getTransaction();
+        try{
+            tx.begin();
+            Query query = em.createQuery("select a from Album a");
+            localAlbums = query.getResultList();
+            tx.commit();
+        }catch (Exception ex){
+            if(tx != null) {
+                LOGGER.error("Some thing wrong. Discard all partial change ");
+                tx.rollback();
+            }
+        }finally {
+            em.close();
+        }
+        return localAlbums;
+    }
+
+    private Album getLocalAlbum(String albumId){
+        Album album = null;
+        EntityTransaction tx = null;
+        try {
+            tx = em.getTransaction();
+            album = em.find(Album.class, albumId);
+            tx.begin();
+            tx.commit();
+        }catch (Exception ex){
+            if(tx != null) {
+                LOGGER.error("Some thing wrong. Discard all partial change ");
+                tx.rollback();
+            }
+        }finally {
+            em.close();
+        }
+        return album;
     }
 }

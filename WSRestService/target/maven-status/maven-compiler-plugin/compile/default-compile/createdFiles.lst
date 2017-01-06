@@ -1,3 +1,5 @@
+org/rest/service/filters/JpaFilter.class
+org/rest/service/SampleService.class
 org/rest/service/entities/Album.class
 org/rest/App.class
-org/rest/service/SampleService.class
+org/rest/service/filters/JpaUtil.class
